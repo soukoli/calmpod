@@ -1,0 +1,12 @@
+export { Navbar } from "./Navbar";
+export { Hero } from "./Hero";
+export { Problem } from "./Problem";
+export { Solution } from "./Solution";
+export { HowItWorks } from "./HowItWorks";
+export { Personas } from "./Personas";
+export { Gallery } from "./Gallery";
+export { Hosts } from "./Hosts";
+export { FutureNetwork } from "./FutureNetwork";
+export { Contribute } from "./Contribute";
+export { CommunityWaitlist } from "./CommunityWaitlist";
+export { Footer } from "./Footer";
