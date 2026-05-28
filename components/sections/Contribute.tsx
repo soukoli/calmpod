@@ -28,21 +28,29 @@ export function Contribute({ t }: ContributeProps) {
     if (!email || !location) return;
 
     setSending(true);
-    const message = [
-      `📍 Navrhovaná lokace: ${location.lat.toFixed(5)}, ${location.lng.toFixed(5)}`,
-      `📍 Adresa: ${location.address}`,
-      note ? `\nPoznámka: ${note}` : "",
-    ].join("\n");
 
     try {
-      await fetch("/api/contact", {
+      const res = await fetch("/api/location", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name: "Návrh místa", email, message }),
+        body: JSON.stringify({
+          email,
+          latitude: location.lat,
+          longitude: location.lng,
+          address: location.address,
+          note: note || undefined,
+        }),
       });
+
+      const data = await res.json();
+      if (data.duplicate) {
+        // User already suggested this location — still show success
+        setSubmitted(true);
+      } else {
+        setSubmitted(true);
+      }
     } catch { /* silent */ }
 
-    setSubmitted(true);
     setSending(false);
   };
 

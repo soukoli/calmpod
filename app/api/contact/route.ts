@@ -1,4 +1,8 @@
 import { Resend } from "resend";
+import { neon } from "@neondatabase/serverless";
+import { drizzle } from "drizzle-orm/neon-http";
+import { eq } from "drizzle-orm";
+import { users } from "@/db/schema";
 
 export async function POST(req: Request) {
   try {
@@ -14,6 +18,33 @@ export async function POST(req: Request) {
       return Response.json({ error: "Invalid email format" }, { status: 400 });
     }
 
+    // --- DB: upsert user ---
+    if (process.env.DATABASE_URL) {
+      try {
+        const sql = neon(process.env.DATABASE_URL);
+        const db = drizzle(sql, { schema: { users } });
+
+        const existing = await db
+          .select()
+          .from(users)
+          .where(eq(users.email, email))
+          .limit(1);
+
+        if (existing.length > 0) {
+          await db
+            .update(users)
+            .set({ name, updatedAt: new Date() })
+            .where(eq(users.id, existing[0].id));
+        } else {
+          await db.insert(users).values({ email, name });
+        }
+      } catch (dbErr) {
+        console.warn("DB upsert warning (non-fatal):", dbErr);
+        // Don't fail the request — email send is still the priority
+      }
+    }
+
+    // --- Email via Resend ---
     if (!process.env.RESEND_API_KEY) {
       console.warn("RESEND_API_KEY not set — skipping email send");
       return Response.json({ success: true });
@@ -21,6 +52,7 @@ export async function POST(req: Request) {
 
     const resend = new Resend(process.env.RESEND_API_KEY);
 
+    // Add to Resend Audience
     const audienceId = process.env.RESEND_AUDIENCE_ID;
     if (audienceId) {
       try {
