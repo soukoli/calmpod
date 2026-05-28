@@ -23,12 +23,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="cs" className="antialiased">
-      <head>
-        <link
-          rel="stylesheet"
-          href="https://unpkg.com/maplibre-gl@4/dist/maplibre-gl.css"
-        />
-      </head>
       <body>
         {children}
         <Analytics />

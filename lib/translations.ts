@@ -4,10 +4,10 @@ export const translations: Record<"en" | "cz", Translations> = {
   en: {
     langToggle: "CZ",
     nav: {
-      howItWorks: "How it works",
-      locations: "Locations",
-      hosts: "Become a Host",
-      join: "Join Waitlist",
+      personas: "For whom",
+      spaces: "Spaces",
+      contribute: "Join",
+      join: "Contact",
     },
     hero: {
       tag: "Concept in progress",
@@ -40,27 +40,6 @@ export const translations: Record<"en" | "cz", Translations> = {
       text: "CalmPod places small, beautifully designed workspaces in forgotten spots near you — parks, forests, lakesides, quiet neighborhoods. A dedicated space for focus and creativity, just around the corner.",
       badge: "0 min",
       badgeSub: "commute",
-    },
-    howItWorks: {
-      tag: "How It Works",
-      headline: "Three steps. No barriers.",
-      steps: [
-        {
-          num: "01",
-          title: "Subscribe",
-          text: "Pick an affordable CalmPass. Low price, no contracts, cancel anytime.",
-        },
-        {
-          num: "02",
-          title: "Find a pod nearby",
-          text: "Browse pods close to home — in nature, parks, or your neighborhood. Book via app.",
-        },
-        {
-          num: "03",
-          title: "Create",
-          text: "Walk in, unlock with your phone. Fast WiFi, monitor, AC, silence. Just work.",
-        },
-      ],
     },
     personas: {
       tag: "For whom",
@@ -185,10 +164,10 @@ export const translations: Record<"en" | "cz", Translations> = {
   cz: {
     langToggle: "EN",
     nav: {
-      howItWorks: "Jak to funguje",
-      locations: "Lokality",
-      hosts: "Staň se hostitelem",
-      join: "Připojit se",
+      personas: "Pro koho",
+      spaces: "Prostory",
+      contribute: "Přidej se",
+      join: "Kontakt",
     },
     hero: {
       tag: "Koncept v přípravě",
@@ -221,27 +200,6 @@ export const translations: Record<"en" | "cz", Translations> = {
       text: "CalmPod umísťuje malé, krásně navržené pracovní prostory na zapomenutá místa poblíž — parky, lesy, jezera, tiché čtvrti. Dedikovaný prostor pro soustředění a kreativitu, hned za rohem.",
       badge: "0 min",
       badgeSub: "dojíždění",
-    },
-    howItWorks: {
-      tag: "Jak to funguje",
-      headline: "Tři kroky. Žádné bariéry.",
-      steps: [
-        {
-          num: "01",
-          title: "Předplať si",
-          text: "Zvol dostupný CalmPass. Nízká cena, bez smluv, zruš kdykoliv.",
-        },
-        {
-          num: "02",
-          title: "Najdi pod poblíž",
-          text: "Prohlédni pody blízko domova — v přírodě, parcích, ve tvé čtvrti. Rezervuj v appce.",
-        },
-        {
-          num: "03",
-          title: "Tvořte",
-          text: "Přijď, odemkni telefonem. Rychlé WiFi, monitor, klima, ticho. Prostě pracuj.",
-        },
-      ],
     },
     personas: {
       tag: "Pro koho",

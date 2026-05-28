@@ -55,14 +55,14 @@ export function Navbar({ lang, t, setLang, menuOpen, setMenuOpen }: NavbarProps)
           transition={{ duration: 0.6 }}
           className="hidden md:flex items-center gap-6 text-sm"
         >
-          <button onClick={() => scrollTo("how-it-works")} className="text-slate-300 hover:text-white transition-colors">
-            {t.nav.howItWorks}
+          <button onClick={() => scrollTo("personas")} className="text-slate-300 hover:text-white transition-colors">
+            {t.nav.personas}
           </button>
           <button onClick={() => scrollTo("gallery")} className="text-slate-300 hover:text-white transition-colors">
-            {t.nav.locations}
+            {t.nav.spaces}
           </button>
-          <button onClick={() => scrollTo("hosts")} className="text-slate-300 hover:text-white transition-colors">
-            {t.nav.hosts}
+          <button onClick={() => scrollTo("contribute")} className="text-slate-300 hover:text-white transition-colors">
+            {t.nav.contribute}
           </button>
           <button
             onClick={() => setLang(lang === "en" ? "cz" : "en")}
@@ -95,9 +95,9 @@ export function Navbar({ lang, t, setLang, menuOpen, setMenuOpen }: NavbarProps)
 
       {menuOpen && (
         <div className="md:hidden bg-black/80 backdrop-blur-xl border-t border-white/10 px-6 py-5 flex flex-col gap-4 text-sm">
-          <button onClick={() => scrollTo("how-it-works")} className="text-left text-slate-300 hover:text-white">{t.nav.howItWorks}</button>
-          <button onClick={() => scrollTo("gallery")} className="text-left text-slate-300 hover:text-white">{t.nav.locations}</button>
-          <button onClick={() => scrollTo("hosts")} className="text-left text-slate-300 hover:text-white">{t.nav.hosts}</button>
+          <button onClick={() => scrollTo("personas")} className="text-left text-slate-300 hover:text-white">{t.nav.personas}</button>
+          <button onClick={() => scrollTo("gallery")} className="text-left text-slate-300 hover:text-white">{t.nav.spaces}</button>
+          <button onClick={() => scrollTo("contribute")} className="text-left text-slate-300 hover:text-white">{t.nav.contribute}</button>
           <button onClick={() => { setLang(lang === "en" ? "cz" : "en"); setMenuOpen(false); }} className="text-left text-slate-300">{lang === "en" ? "Česky" : "English"}</button>
           <Button variant="primary" size="sm" onClick={() => scrollTo("waitlist")} className="w-fit">{t.nav.join}</Button>
         </div>

@@ -1,9 +1,9 @@
 export type Lang = "en" | "cz";
 
 export interface NavTranslations {
-  howItWorks: string;
-  locations: string;
-  hosts: string;
+  personas: string;
+  spaces: string;
+  contribute: string;
   join: string;
 }
 
@@ -32,18 +32,6 @@ export interface SolutionTranslations {
   text: string;
   badge: string;
   badgeSub: string;
-}
-
-export interface HowItWorksStep {
-  num: string;
-  title: string;
-  text: string;
-}
-
-export interface HowItWorksTranslations {
-  tag: string;
-  headline: string;
-  steps: HowItWorksStep[];
 }
 
 export interface GalleryTranslations {
@@ -128,7 +116,6 @@ export interface Translations {
   hero: HeroTranslations;
   problem: ProblemTranslations;
   solution: SolutionTranslations;
-  howItWorks: HowItWorksTranslations;
   personas: PersonasTranslations;
   gallery: GalleryTranslations;
   hosts: HostsTranslations;
