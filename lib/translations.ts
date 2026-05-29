@@ -159,6 +159,11 @@ export const translations: Record<"en" | "cz", Translations> = {
       tagline: "Deep Work Pods",
       contact: "support@calmpod.cz",
       links: ["Privacy", "Contact"],
+      privacy: "Privacy Policy",
+    },
+    privacy: {
+      consent: "I consent to the processing of my personal data for the purpose of processing my suggestion.",
+      link: "Privacy Policy",
     },
   },
   cz: {
@@ -319,6 +324,11 @@ export const translations: Record<"en" | "cz", Translations> = {
       tagline: "Deep Work Pods",
       contact: "support@calmpod.cz",
       links: ["Soukromí", "Kontakt"],
+      privacy: "Ochrana osobních údajů",
+    },
+    privacy: {
+      consent: "Souhlasím se zpracováním osobních údajů za účelem zpracování mého návrhu.",
+      link: "Zásady ochrany osobních údajů",
     },
   },
 };

@@ -86,6 +86,7 @@ export interface FooterTranslations {
   tagline: string;
   contact: string;
   links: string[];
+  privacy: string;
 }
 
 export interface FutureNetworkTranslations {
@@ -111,6 +112,11 @@ export interface ContributeTranslations {
   mapPickerHint: string;
 }
 
+export interface PrivacyTranslations {
+  consent: string;
+  link: string;
+}
+
 export interface Translations {
   nav: NavTranslations;
   hero: HeroTranslations;
@@ -124,5 +130,6 @@ export interface Translations {
   discord: DiscordTranslations;
   waitlist: WaitlistTranslations;
   footer: FooterTranslations;
+  privacy: PrivacyTranslations;
   langToggle: string;
 }

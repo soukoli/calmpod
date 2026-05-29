@@ -2,6 +2,7 @@
 
 import { DiscordLogo, InstagramLogo, EnvelopeSimple } from "@phosphor-icons/react";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import type { Translations } from "@/lib/types";
 
 interface FooterProps {
@@ -23,14 +24,23 @@ export function Footer({ t }: FooterProps) {
             {t.footer.copy} — {t.footer.tagline}
           </div>
 
-          {/* Center — contact email */}
-          <a
-            href={`mailto:${t.footer.contact}`}
-            className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm"
-          >
-            <EnvelopeSimple size={16} weight="light" />
-            {t.footer.contact}
-          </a>
+          {/* Center — links */}
+          <div className="flex items-center gap-4">
+            <a
+              href={`mailto:${t.footer.contact}`}
+              className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm"
+            >
+              <EnvelopeSimple size={16} weight="light" />
+              {t.footer.contact}
+            </a>
+            <span className="text-slate-700">|</span>
+            <Link
+              href="/zasady-ochrany-osobnich-udaju"
+              className="text-slate-500 hover:text-white transition-colors text-sm"
+            >
+              {t.footer.privacy}
+            </Link>
+          </div>
 
           {/* Right — social links */}
           <div className="flex items-center gap-4">
@@ -50,7 +60,6 @@ export function Footer({ t }: FooterProps) {
             >
               <InstagramLogo size={20} weight="light" />
             </a>
-            {/* Add more social links here as needed */}
           </div>
         </div>
       </motion.div>

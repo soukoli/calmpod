@@ -3,6 +3,7 @@
 import { useState, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Lightbulb, RocketLaunch, MapPin } from "@phosphor-icons/react";
+import Link from "next/link";
 import { SectionWrapper, Badge, Card, Button, RevealOnScroll } from "@/components/ui";
 import { LocationPicker } from "@/components/ui/LocationPicker";
 import type { Translations } from "@/lib/types";
@@ -18,6 +19,7 @@ export function Contribute({ t }: ContributeProps) {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
   const [mapExpanded, setMapExpanded] = useState(false);
+  const [consent, setConsent] = useState(false);
 
   const handleLocationSelect = useCallback((lat: number, lng: number, address: string) => {
     setLocation({ lat, lng, address });
@@ -195,7 +197,24 @@ export function Contribute({ t }: ContributeProps) {
                       rows={2}
                       className="w-full px-3 py-2 rounded-md bg-white/10 border border-white/20 text-white placeholder:text-slate-400 focus:border-violet-400 focus:outline-none transition-colors text-sm resize-none"
                     />
-                    <Button type="submit" variant="primary" size="md">
+                    <label className="flex items-start gap-2 cursor-pointer">
+                      <input
+                        type="checkbox"
+                        checked={consent}
+                        onChange={(e) => setConsent(e.target.checked)}
+                        className="mt-0.5 w-4 h-4 rounded border-white/20 bg-white/10 text-violet-500 focus:ring-violet-400 focus:ring-offset-0 shrink-0"
+                      />
+                      <span className="text-xs text-slate-400 leading-relaxed">
+                        {t.privacy.consent}{" "}
+                        <Link
+                          href="/zasady-ochrany-osobnich-udaju"
+                          className="text-violet-400 hover:text-violet-300 underline"
+                        >
+                          {t.privacy.link}
+                        </Link>
+                      </span>
+                    </label>
+                    <Button type="submit" variant="primary" size="md" disabled={!consent || sending}>
                       {sending ? "Odesílám..." : "Odeslat návrh"}
                     </Button>
                   </motion.form>
