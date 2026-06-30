@@ -1,0 +1,17 @@
+#!/bin/sh
+# Pre-commit hook: run tests before every commit
+# If tests fail, the commit is aborted.
+#
+# Setup: git config core.hooksPath .githooks
+
+echo "Running tests before commit..."
+npm test
+
+if [ $? -ne 0 ]; then
+  echo ""
+  echo "Tests failed. Commit aborted."
+  echo "Fix the failing tests and try again."
+  exit 1
+fi
+
+echo "All tests passed."

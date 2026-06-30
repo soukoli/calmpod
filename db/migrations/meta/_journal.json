@@ -8,6 +8,13 @@
       "when": 1779977296210,
       "tag": "0000_lazy_sabretooth",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1782826501700,
+      "tag": "0001_swift_the_captain",
+      "breakpoints": true
     }
   ]
 }
